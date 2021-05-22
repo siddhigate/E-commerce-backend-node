@@ -5,6 +5,9 @@ const express = require('express');
 
 const app = express();
 
+const cookieParser = require('cookie-parser');
+const cors = require('cors'); 
+
 mongoose.connect(process.env.DATABASE, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -15,7 +18,12 @@ mongoose.connect(process.env.DATABASE, {
     console.log("Oops CAN'T CONNECT TO DATABASE");
 });
 
-const port = 8000;
+app.use(express.json());
+app.use(express.urlencoded({ extended: true}));
+app.use(cookieParser());
+app.use(cors());
+
+const port = process.env.PORT || 8000;
 
 app.listen(port, ()=>{
     console.log(`App is running at ${port}`);
