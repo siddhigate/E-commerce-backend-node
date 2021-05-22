@@ -4,7 +4,7 @@ const uuidv1 = require('uuid/v1');
 
 const Schema = mongoose.Schema;
 
-const userSchema = ({
+const userSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
