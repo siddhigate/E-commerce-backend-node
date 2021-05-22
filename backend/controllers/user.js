@@ -23,15 +23,3 @@ exports.getUser = (req, res) =>{
 
     return res.json(req.profile);
 } 
-
-exports.getAllUsers = (req,res) => {
-
-    User.find().exec((err, users) => {
-
-        if(err || !users){
-            return res.status(422).json({error: "no users found"});
-        }
-
-        return res.json(users);
-    })
-}
