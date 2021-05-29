@@ -146,6 +146,7 @@ exports.getAllProducts = (req, res) => {
             return res.status(400).json({message:" no products found"});
         }
 
+        return res.json(products);
     });
 };  
 
