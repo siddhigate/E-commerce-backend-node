@@ -4,13 +4,14 @@ const _  = require("lodash");
 const fs = require("fs");
 const { sortBy } = require("lodash");
 
-exports.getProductById = (req, res, nexy, id) => {
+exports.getProductById = (req, res, next, id) => {
 
     Product.findById(id)
     .populate("category")
     .exec((err, product) =>{
-        if(err || !user){
-            return res.status(400).json({error: "USer not found"});
+        if(err || !product){
+            console.log("ERROR", product);
+            return res.status(400).json({error: "Product not found"});
         }
         req.product = product;
         next();
@@ -116,7 +117,7 @@ exports.updateProduct = (req, res) => {
 // delete controller
 exports.removeProduct = (req, res) => {
     
-    let product = req.product;
+    const product = req.product;
     product.remove((err, deletedProduct) => {
 
         if(err || !deletedProduct){
@@ -146,6 +147,7 @@ exports.getAllProducts = (req, res) => {
             return res.status(400).json({message:" no products found"});
         }
 
+        return res.json(products);
     });
 };  
 
