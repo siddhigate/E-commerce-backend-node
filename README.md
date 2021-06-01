@@ -9,4 +9,4 @@
 3.  Product CRUD 
 4.  Category CRUD
 5.  Order CRUD
-6.  Managing user orders and cart
+6.  Managing user orders
