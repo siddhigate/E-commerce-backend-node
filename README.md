@@ -1,2 +1,12 @@
-# E-commerce
- E-commerce web app using MERN stack
+# E-commerce backend
+
+ E-commerce backend built using NodeJS and MongoDB
+
+
+ ## Functionalities
+1.  User authentication
+2.  Admin authentication
+3.  Product CRUD 
+4.  Category CRUD
+5.  Order CRUD
+6.  Managing user orders
